@@ -82,6 +82,7 @@ $P(Street 1= Clear ∩ Street 2=Clear)$
 
 ```python
 # Your code here
+# 0.4931506849315068
 ```
 
 ## Question 2
@@ -93,6 +94,7 @@ $P(Street1 ∈ {Clear ∪ Wet} ∩ Street2=Icy)$
 
 ```python
 # Your code here
+# 0.07397260273972603
 ```
 
 ## Question 3
@@ -107,6 +109,7 @@ $$P(Street2=Clear ∩ Street1=Icy)$$
 
 ```python
 # Your code here
+# 0.5753424657534246
 ```
 
 ## Question 4
@@ -118,6 +121,7 @@ $P(Street1=Clear|Street2=Clear) = \displaystyle \frac{P(Street1=Clear∩Street2=
 
 ```python
 # Your code here
+# 0.8571428571428571
 ```
 
 ## Question 5
@@ -129,4 +133,5 @@ $P(Street2=Clear|Street1=Clear) = \displaystyle \frac{P(Street2=Clear∩Street1=
 
 ```python
 # Your code here
+# 0.923076923076923
 ```
