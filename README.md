@@ -1,5 +1,5 @@
-# Probability of weather in two cities
-<img src="https://i.ytimg.com/vi/6MGRkUlFZws/maxresdefault.jpg" alt="Weather cartoon" width="500"/>
+# Probability of road conditions
+<img src="roads.jpg" alt="Image of roads" width="500"/>
 
 
 ```python
@@ -7,11 +7,11 @@
 import pandas as pd
 from test_background import pkl_dump, test_obj_dict, run_test_dict, run_test
 
-data = [{'Sunny': 6, 'Cloudy': 2, 'Rainy': 0},
-       {'Sunny': 1, 'Cloudy': 5, 'Rainy': 2},
-       {'Sunny': 0, 'Cloudy': 1, 'Rainy': 3}]
+data = [{'Clear': 180, 'Wet': 15, 'Icy': 0},
+       {'Clear': 30, 'Wet': 40, 'Icy': 27},
+       {'Clear': 0, 'Wet': 22, 'Icy': 51}]
 
-df = pd.DataFrame(data, index = ['Sunny', 'Cloudy', 'Rainy'])
+df = pd.DataFrame(data, index = ['Clear', 'Wet', 'Icy'])
 df.head()
 ```
 
@@ -36,29 +36,29 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Sunny</th>
-      <th>Cloudy</th>
-      <th>Rainy</th>
+      <th>Clear</th>
+      <th>Wet</th>
+      <th>Icy</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Sunny</td>
-      <td>6</td>
-      <td>2</td>
+      <th>Clear</th>
+      <td>180</td>
+      <td>15</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>Cloudy</td>
-      <td>1</td>
-      <td>5</td>
-      <td>2</td>
+      <th>Wet</th>
+      <td>30</td>
+      <td>40</td>
+      <td>27</td>
     </tr>
     <tr>
-      <td>Rainy</td>
+      <th>Icy</th>
       <td>0</td>
-      <td>1</td>
-      <td>3</td>
+      <td>22</td>
+      <td>51</td>
     </tr>
   </tbody>
 </table>
@@ -66,143 +66,67 @@ df.head()
 
 
 
-**The above dataframe** represents the joint weather events for two neighboring cities over a time frame of 20 days. 
+**The above dataframe** represents the joint road conditions for two neighboring streets over a time frame of 365 days. 
 
-The index represents ```Town 1``` and the columns represent ```Town 2```
+The index represents `Street 1` and the columns represent `Street  2`
 
-The values represent the number of days the two weather events in each town occurred on the same day.
->ie. There were 2 days out of 20 it was Sunny in ```Town 1``` and Cloudy in ```Town 2```
+The values represent the number of days the two road conditions for each street occurred on the same day.
+>ie. There were 15 days out of 365 that `Street 1` had Clear conditions and `Street 2` had Wet conditions
 
 ## Question 1
 
-What is the probability of it being Sunny in both towns at the same time?
+What is the probability of there being Clear conditions for both streets at the same time?
 
-$P(Town1=Sunny ∩ Town2=Sunny)$
+$P(Street 1= Clear ∩ Street 2=Clear)$
 
 
 ```python
-sunny_town1_sunny_town2 = 6/20
-sunny_town1_sunny_town2
-# #used for tests
-# pkl_dump([
-#     (sunny_town1_sunny_town2,
-#      'sunny_town1_sunny_town2')
-# ]
-# )
+# Your code here
 ```
-
-
-
-
-    0.3
-
-
 
 ## Question 2
 
-What is the probability of it not being Rainy in ```Town1``` and Rainy in ```Town2```?
+What is the probability of it not being Icy on `Street1` and Icy on `Street2`?
 
-$P(Town1 ∈ {Sunny ∪ Cloudy} ∩ Town2=Rainy)$
+$P(Street1 ∈ {Clear ∪ Wet} ∩ Street2=Icy)$
 
 
 ```python
-no_rain_town1_rain_town2 = 0/20 + 2/20
-no_rain_town1_rain_town2
-# #used for tests
-# pkl_dump([
-#     (no_rain_town1_rain_town2,
-#      'no_rain_town1_rain_town2')
-# ]
-# )
+# Your code here
 ```
-
-
-
-
-    0.1
-
-
 
 ## Question 3
 
-What is the probability of it being Sunny in ```Town2``` <u>regardless of the weather</u> in ```Town1```?
+What is the probability of it being Clear on `Street2` <u>regardless of the conditions</u> on `Street1`?
 
-$$P(Town2=Sunny) =$$ 
-$$P(Town2=Sunny ∩ Town1=Sunny) + $$
-$$P(Town2=Sunny ∩ Town1=Cloudy)+ $$
-$$P(Town2=Sunny ∩ Town1=Rainy)$$
+$$P(Street2=Clear) =$$ 
+$$P(Street2=Clear ∩ Street1=Clear) + $$
+$$P(Street2=Clear ∩ Street1=Wet)+ $$
+$$P(Street2=Clear ∩ Street1=Icy)$$
 
 
 ```python
-
-sunny_town2 = df.Sunny.sum()/20
-sunny_town2
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town2,
-#      'sunny_town2')
-# ]
-# )
+# Your code here
 ```
-
-
-
-
-    0.35
-
-
 
 ## Question 4
 
-What is the probability  of it being Sunny in ```Town1``` given that it is Sunny in ```Town2```?
+What is the probability  of it being Clear on ```Street1``` given that it is Clear on ```Street2```?
 
-$P(Town1=Sunny|Town2=Sunny) = \displaystyle \frac{P(Town1=Sunny∩Town2=Sunny)}{P(Town2=Sunny)}$
+$P(Street1=Clear|Street2=Clear) = \displaystyle \frac{P(Street1=Clear∩Street2=Clear)}{P(Street2=Clear)}$
 
 
 ```python
-
-sunny_town1_given_sunny_town2 = sunny_town1_sunny_town2/sunny_town2
-sunny_town1_given_sunny_town2
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town1_given_sunny_town2,
-#      'sunny_town1_given_sunny_town2')
-# ]
-# )
+# Your code here
 ```
-
-
-
-
-    0.8571428571428572
-
-
 
 ## Question 5
 
-What is the probability of it being Sunny in ```Town2``` given that it is Sunny in ```Town1```?
+What is the probability of it being Clear on `Street2` given that it is Clear on `Street1`?
 
-$P(Town2=Sunny|Town1=Sunny) = \displaystyle \frac{P(Town2=Sunny∩Town1=Sunny)}{P(Town1=Sunny)}$
+$P(Street2=Clear|Street1=Clear) = \displaystyle \frac{P(Street2=Clear∩Street1=Clear)}{P(Street1=Clear)}$
 
 
 ```python
-sunny_town1 = df.loc['Sunny'].sum()/20
-sunny_town2_given_sunny_town1 = sunny_town1_sunny_town2/sunny_town1
-sunny_town2_given_sunny_town1
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town2_given_sunny_town1,
-#      'sunny_town2_given_sunny_town1')
-# ]
-# )
+# Your code here
 ```
-
-
-
-
-    0.7499999999999999
-
-
