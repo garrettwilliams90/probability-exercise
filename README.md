@@ -97,19 +97,14 @@ $P(Street 1= Clear ∩ Street 2=Clear)$
 
 ```python
 # Your code here
+# 0.4931506849315068
 ```
 
 
 ```python
 #__SOLUTION__
-clear_street1_clear_street2 = 180/365
+clear_street1_clear_street2 = 180/365 
 clear_street1_clear_street2
-# #used for tests
-# pkl_dump([
-#     (clear_street1_clear_street2,
-#      'clear_street1_clear_street2')
-# ]
-# )
 ```
 
 
@@ -128,6 +123,7 @@ $P(Street1 ∈ {Clear ∪ Wet} ∩ Street2=Icy)$
 
 ```python
 # Your code here
+# 0.07397260273972603
 ```
 
 
@@ -135,12 +131,6 @@ $P(Street1 ∈ {Clear ∪ Wet} ∩ Street2=Icy)$
 #__SOLUTION__
 not_icy_street1_icy_street2 = 0/365 + 27/365
 not_icy_street1_icy_street2
-# #used for tests
-# pkl_dump([
-#     (no_rain_town1_rain_town2,
-#      'no_rain_town1_rain_town2')
-# ]
-# )
 ```
 
 
@@ -162,6 +152,7 @@ $$P(Street2=Clear ∩ Street1=Icy)$$
 
 ```python
 # Your code here
+# 0.5753424657534246
 ```
 
 
@@ -169,13 +160,6 @@ $$P(Street2=Clear ∩ Street1=Icy)$$
 #__SOLUTION__
 clear_street2 = df.Clear.sum()/365
 clear_street2
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town2,
-#      'sunny_town2')
-# ]
-# )
 ```
 
 
@@ -194,6 +178,7 @@ $P(Street1=Clear|Street2=Clear) = \displaystyle \frac{P(Street1=Clear∩Street2=
 
 ```python
 # Your code here
+# 0.8571428571428571
 ```
 
 
@@ -201,13 +186,6 @@ $P(Street1=Clear|Street2=Clear) = \displaystyle \frac{P(Street1=Clear∩Street2=
 #__SOLUTION__
 clear_street1_given_clear_street2 = clear_street1_clear_street2/clear_street2
 clear_street1_given_clear_street2
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town1_given_sunny_town2,
-#      'sunny_town1_given_sunny_town2')
-# ]
-# )
 ```
 
 
@@ -226,6 +204,7 @@ $P(Street2=Clear|Street1=Clear) = \displaystyle \frac{P(Street2=Clear∩Street1=
 
 ```python
 # Your code here
+# 0.923076923076923
 ```
 
 
@@ -234,13 +213,6 @@ $P(Street2=Clear|Street1=Clear) = \displaystyle \frac{P(Street2=Clear∩Street1=
 clear_street1 = df.loc['Clear'].sum()/365
 clear_street2_given_clear_street1 = clear_street1_clear_street2/clear_street1
 clear_street2_given_clear_street1
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town2_given_sunny_town1,
-#      'sunny_town2_given_sunny_town1')
-# ]
-# )
 ```
 
 
