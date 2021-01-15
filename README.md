@@ -30,14 +30,8 @@ $P(Street 1= Clear ∩ Street 2=Clear)$
 
 
 ```python
-clear_street1_clear_street2 = 180/365
+clear_street1_clear_street2 = 180/365 
 clear_street1_clear_street2
-# #used for tests
-# pkl_dump([
-#     (clear_street1_clear_street2,
-#      'clear_street1_clear_street2')
-# ]
-# )
 ```
 
 
@@ -57,12 +51,6 @@ $P(Street1 ∈ {Clear ∪ Wet} ∩ Street2=Icy)$
 ```python
 not_icy_street1_icy_street2 = 0/365 + 27/365
 not_icy_street1_icy_street2
-# #used for tests
-# pkl_dump([
-#     (no_rain_town1_rain_town2,
-#      'no_rain_town1_rain_town2')
-# ]
-# )
 ```
 
 
@@ -85,13 +73,6 @@ $$P(Street2=Clear ∩ Street1=Icy)$$
 ```python
 clear_street2 = df.Clear.sum()/365
 clear_street2
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town2,
-#      'sunny_town2')
-# ]
-# )
 ```
 
 
@@ -111,13 +92,6 @@ $P(Street1=Clear|Street2=Clear) = \displaystyle \frac{P(Street1=Clear∩Street2=
 ```python
 clear_street1_given_clear_street2 = clear_street1_clear_street2/clear_street2
 clear_street1_given_clear_street2
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town1_given_sunny_town2,
-#      'sunny_town1_given_sunny_town2')
-# ]
-# )
 ```
 
 
@@ -138,13 +112,6 @@ $P(Street2=Clear|Street1=Clear) = \displaystyle \frac{P(Street2=Clear∩Street1=
 clear_street1 = df.loc['Clear'].sum()/365
 clear_street2_given_clear_street1 = clear_street1_clear_street2/clear_street1
 clear_street2_given_clear_street1
-
-# #used for tests
-# pkl_dump([
-#     (sunny_town2_given_sunny_town1,
-#      'sunny_town2_given_sunny_town1')
-# ]
-# )
 ```
 
 
