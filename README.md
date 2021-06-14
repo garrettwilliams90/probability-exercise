@@ -24,9 +24,11 @@ The values represent the number of days the two road conditions for each street 
 
 ## Question 1
 
-What is the probability of there being Clear conditions for both streets at the same time?
+What is the probability of there being Clear conditions on street 1 and clear conditions on street 2?
 
-$P(Street 1= Clear ∩ Street 2=Clear)$
+> When solving probability problems, the language is usually very important. In this case, the word `and` is used. 
+
+> Here, we can use the conditional probability formula: $P(B|A) = P(A\space and\space B)/P(A)$, but the terms in the formula will need to be moved around first!
 
 
 ```python
@@ -120,3 +122,95 @@ clear_street2_given_clear_street1
     0.923076923076923
 
 
+
+# Card Combinatorics
+
+<img src="https://www.denofgeek.com/wp-content/uploads/2020/06/magic-the-gathering-competitive-decks.jpg?fit=1200%2C675" width="600px;">
+
+## Question 6
+
+The rules for the card game Magic the Gathering are as followed:
+
+* A player can have a maximum of 7 cards in their hand
+* A deck must have 60 cards
+
+In the cell below, calculate the number of possible 7 card combinations from a deck containing 60 cards.
+
+
+```python
+from math import factorial
+
+factorial(60)/(factorial(60-7) * factorial(7))
+```
+
+
+
+
+    386206920.0
+
+
+
+## Question 7
+
+A standard magic the gathering deck has 60 cards in total, and is made up of 24 land cards and 36 magic cards.
+
+Given a hand of seven hards, how many possible hand combinations exists that contain exactly two lands?
+
+
+```python
+def nchoosek(n, k):
+    return factorial(n)/(factorial(n-k) * factorial(k))
+
+deck_count = 60
+land_count = 24
+magic_count = 36
+lands_in_hand = 2
+magic_in_hand = 7 - lands_in_hand
+
+
+nchoosek(land_count, lands_in_hand) * nchoosek(magic_count, magic_in_hand)
+```
+
+
+
+
+    104049792.0
+
+
+
+## Question 8
+
+Given a hand of seven cards, what is the probability of drawing a hand with 2 *or more* land cards?
+
+*Hint:* If you're stuck, check out [this thread](https://www.quora.com/How-many-different-hands-can-be-dealt-that-contain-3-aces-A-hand-of-five-cards-is-dealt-from-a-pack-of-52-playing-cards#:~:text=The%20number%20of%20ways%20to%20draw%20two%20Aces%20from%20four,*6*44%20%3D%201%2C584.)
+
+
+```python
+# Your code here
+# 0.8573441200898213
+
+deck_count = 60
+land_count = 24
+magic_count = 36
+
+matching_hands = 0
+for num_lands in range(2, 8):
+    magic_in_hand = 7 - num_lands
+    matching_hands += nchoosek(land_count, num_lands) * nchoosek(magic_count, magic_in_hand)
+    
+total_hands = nchoosek(60, 7)
+
+matching_hands/total_hands
+```
+
+
+
+
+    0.8573441200898213
+
+
+
+
+```python
+
+```
