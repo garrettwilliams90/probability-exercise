@@ -282,7 +282,7 @@ Given a hand of seven cards, what is the probability of drawing a hand with 2 *o
 We can solve this a couple ways. 
 
 1. We can find the number of possible hands that can have 2-7 lands and divide by the total number of possible hands
-2. We can find the number of possible hands that have 0-1 lands, subtract that number from the total, and divide by the total number of possible hands.
+2. We can find the number of possible hands that have 6 or 7 magic cards, subtract that number from the total, and divide by the total number of possible hands.
 
 **Solution 1:**
 
